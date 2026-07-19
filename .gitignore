@@ -1,18 +1,89 @@
-node_modules/
-**/node_modules/
-.venv/
+# Python
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+.venv/
+ENV/
+env/
+backend/venv/
+backend/venv*/
+backend/.venv/
+backend/.venv-ci/
+backend/.venv-ci*/
+.setup-stamp.json
+*.egg-info/
 dist/
 build/
-core/dist/
-.env
-.env.*
-!.env.example
-*.pem
-*.log
-*.sqlite
-*.db
-data/
-pgdata/
+.pytest_cache/
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Frontend build
+frontend/dist/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
 .DS_Store
+Thumbs.db
+
+# Database
+*.db
+*.db-shm
+*.db-wal
+data/
+backend/.runtime/
+
+# Force-include shipped SDK baseline data (refreshed by
+# scripts/refresh_category_yes_rates.py; the seed is the empirical
+# baseline at commit time so a fresh install has reasonable defaults).
+!backend/data/
+!backend/data/*.json
+
+# Local exports
+homerun-settings-*.json
+
+# Logs
+*.log
+logs/
+
+# Runtime artifacts
+*.rdb
+
+# Test / debug artifacts
+output/
+.playwright-cli/
+.oneshot/
+backend/scripts/_*_results*.json
+
+# Claude Code local settings
+.claude/settings.local.json
+.claude/scheduled_tasks.lock
+
+# Windows reserved-name artifact
+/nul
+
+# Secrets
+.env
+.env.local
+.env.*.local
+secrets.json
+.claude/worktrees/
+.cutover-snapshots/
+
+# --- 本地部署补充：强制纳入 App 自带的前端静态数据 ---
+# 上面的 data/ 规则会误伤这两个源码目录，这里显式放行
+!frontend/src/data/
+!frontend/public/data/
