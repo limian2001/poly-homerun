@@ -59,6 +59,8 @@ x-backend-volumes: &backend-volumes
   - ./data/cache:/app/data/cache
   - ./data/runtime:/app/data/runtime
   - ./data/machine_learning:/app/data/machine_learning
+  # 盘口快照 parquet 落到宿主机（否则写进容器可写层，prune 清不到、会撑爆磁盘）
+  - ./data/parquet:/app/data/parquet
 
 services:
   # ---------------------------------------------------------------------
